@@ -5,9 +5,7 @@
 
 trigger:
 - master
-variables: 
-  uiSource: '/build-release'
-  uiBuild: '$(uiSource)/build'
+
 pool:
   vmImage: ubuntu-latest
 
@@ -18,18 +16,10 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
-    pushd $(uiSource)
     npm install -g @angular/cli
     npm install
     ng build --configuration production
   displayName: 'npm install and build'
-- task: ArchiveFiles@2
-  inputs:
-    rootFolderOrFile: '$(uiBuild)'
-    includeRootFolder: false
-    archiveType: 'zip'
-    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
-    replaceExistingArchive: true
 
 - task: ArchiveFiles@2
   displayName: 'Archive files'
