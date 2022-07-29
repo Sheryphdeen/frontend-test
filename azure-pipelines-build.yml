@@ -40,18 +40,17 @@ stages:
         artifact: drop
 
 - stage: Development
-  displayName: 'Deploy to Development'
+  displayName: Deploy to VM
   dependsOn: Build
   condition: succeeded()
   jobs:
   - deployment: VMDeploy
-    displayName: Web
+    displayName: web
     pool:
       vmImage: 'ubuntu-latest'
     environment: 
-      name: 'Angular-test-environment' 
-    resource: VirtualMachine
-    tags: web
+      name: Angular test environment 
+    resourceType: VirtualMachine
     strategy:
       runOnce:
         deploy:
