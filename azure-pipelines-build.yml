@@ -53,6 +53,7 @@ steps:
     environment: 
       name: Development 
     resourceType: VirtualMachine
+    tags: web
     strategy:
       runOnce:
         deploy:
