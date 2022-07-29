@@ -49,7 +49,7 @@ stages:
     pool:
       vmImage: 'ubuntu-latest'
     environment: 
-      name: 'Angular test environnment' 
+      name: 'Angular test environment' 
     resourceType: VirtualMachine
     tags: web
     strategy:
