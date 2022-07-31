@@ -49,8 +49,8 @@ stages:
     pool:
       vmImage: 'ubuntu-latest'
     environment: 
-      name: Angular test environment 
-    resourceType: VirtualMachine
+      name: AngularApp
+      resourceType: VirtualMachine
     strategy:
       runOnce:
         deploy:
