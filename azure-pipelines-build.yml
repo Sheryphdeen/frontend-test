@@ -49,7 +49,7 @@ stages:
     pool:
       vmImage: 'ubuntu-latest'
     environment: 
-      name: AngularApp
+      name: Dev
       resourceType: VirtualMachine
     strategy:
       runOnce:
