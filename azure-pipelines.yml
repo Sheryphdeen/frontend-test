@@ -27,13 +27,13 @@ stages:
                   ng build --configuration production
         displayName: 'npm install and build'
 
+      - task: CopyFiles@2
+        inputs:
+          SourceFolder: '$(Build.SourcesDirectory)'
+          Contents: '**/$(BuildConfiguration)/**/?(*.exe|*.dll|*pdb)'
+          TargetFolder: '$(Build.ArtifactStagingDirectory)'
       - task: PublishBuildArtifacts@1
         inputs:
           PathtoPublish: '$(Build.ArtifactStagingDirectory)'
           ArtifactName: 'test'
           publishLocation: 'Container'
-      - task: DownloadPipelineArtifact@2
-        inputs:
-          buildType: 'current'
-          artifactName: 'test'
-          targetPath: '$(Pipeline.Workspace)'
